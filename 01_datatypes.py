@@ -8,3 +8,12 @@ True, False  # booleans
 
 42  # int, integer
 3.14 # float
+
+# lists
+[
+    1, 
+    2, 
+    3.12, 
+    "Robert", 
+    [1, 2, 3, 4]
+]
