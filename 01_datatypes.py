@@ -17,3 +17,12 @@ True, False  # booleans
     "Robert", 
     [1, 2, 3, 4]
 ]
+
+# dictionary
+phoneook = {
+    "06 20 123 5678": "Robert",
+    "06 20 987 3655": "Csaba"
+}
+
+# tuple
+my_friends = ("Csaba", "Kriszta", "Tamás")

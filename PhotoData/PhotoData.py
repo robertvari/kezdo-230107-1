@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ExifTags
 
 # r = raw string
 folder_path = r"D:\Work\_PythonSuli\kezdo-230107\photos"
@@ -30,3 +30,16 @@ for item in folder_content:
 
     if extension in alowed_extensions:
         photo_files.append(full_path)
+
+# read image data
+test_photo = photo_files[0]
+img = Image.open(test_photo)
+
+size = img.size
+exif_data = img._getexif()
+
+camera_model = exif_data.get(0x0110)
+date = exif_data.get(0x9003)
+iso = exif_data.get(0x8827)
+
+print(size, camera_model, date, iso)
