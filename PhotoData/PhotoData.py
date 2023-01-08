@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 
 # r = raw string
 folder_path = r"D:\Work\_PythonSuli\kezdo-230107\photos"
