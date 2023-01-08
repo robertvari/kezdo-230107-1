@@ -55,5 +55,6 @@ for image_file in photo_files:
         "iso": iso
     }
 
+# write out photo_data
 with open("photo_data.json", "w") as data_file:
     json.dump(photo_data, data_file)
