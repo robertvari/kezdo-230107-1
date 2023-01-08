@@ -1,4 +1,4 @@
-import os
+import os, json
 from PIL import Image, ExifTags
 
 # r = raw string
@@ -32,14 +32,24 @@ for item in folder_content:
         photo_files.append(full_path)
 
 # read image data
-test_photo = photo_files[0]
-img = Image.open(test_photo)
+for image_file in photo_files:
+    img = Image.open(image_file)
 
-size = img.size
-exif_data = img._getexif()
+    size = img.size
+    exif_data = img._getexif()
+    if not exif_data:  # skip images without exif data
+        continue
 
-camera_model = exif_data.get(0x0110)
-date = exif_data.get(0x9003)
-iso = exif_data.get(0x8827)
+    camera_model = exif_data.get(0x0110)
+    date = exif_data.get(0x9003)
+    iso = exif_data.get(0x8827)
 
-print(size, camera_model, date, iso)
+    #print(image_file, size, camera_model, date, iso)
+
+phonebook = {
+    "06 20 123 4567": "Robert",
+    "06 30 987 4538": "Csaba"
+}
+
+with open("phonebook.json", "w") as data_file:
+    json.dump(phonebook, data_file)
