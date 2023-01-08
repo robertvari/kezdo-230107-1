@@ -11,7 +11,7 @@ while player_guess != str(magic_number):
         print("You lost this game. Maybe next time :(")
         exit()
 
-    print("Wrong guess :( Try again")
+    print(f"Wrong guess :( Try again. You have {lifes} lifes left.")
     player_guess = input("Your number?")
 
 print(f"That's right! {magic_number} was my number! :)))")
