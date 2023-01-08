@@ -31,6 +31,9 @@ for item in folder_content:
     if extension in alowed_extensions:
         photo_files.append(full_path)
 
+
+photo_data = {}
+
 # read image data
 for image_file in photo_files:
     img = Image.open(image_file)
@@ -44,12 +47,13 @@ for image_file in photo_files:
     date = exif_data.get(0x9003)
     iso = exif_data.get(0x8827)
 
-    #print(image_file, size, camera_model, date, iso)
+    # add image data to photo_data
+    photo_data[image_file] = {
+        "size": size,
+        "camera_model": camera_model,
+        "date": date,
+        "iso": iso
+    }
 
-phonebook = {
-    "06 20 123 4567": "Robert",
-    "06 30 987 4538": "Csaba"
-}
-
-with open("phonebook.json", "w") as data_file:
-    json.dump(phonebook, data_file)
+with open("photo_data.json", "w") as data_file:
+    json.dump(photo_data, data_file)
