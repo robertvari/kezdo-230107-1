@@ -15,6 +15,8 @@ folder_content = os.listdir(folder_path)
 # todo: filter folder content. Only .jpg files allowed!
 alowed_extensions = ["jpg", "jpeg"]
 
+# filter folder_content and collect .jpg and .jpeg files
+photo_files = []
 for item in folder_content:
     full_path = os.path.join(folder_path, item)
     
@@ -26,4 +28,4 @@ for item in folder_content:
     extension = item_list[-1]
 
     if extension in alowed_extensions:
-        print(full_path)
+        photo_files.append(full_path)
