@@ -1,8 +1,10 @@
+import random
+
 print("="*50, "MAGIC NUMBER", "="*50)
 print("I have a number between 1 and 10. Can you guess it?")
 
 lifes = 3
-magic_number = 5
+magic_number = random.randint(1, 10)
 player_guess = input("Your number?")
 
 while player_guess != str(magic_number):

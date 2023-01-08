@@ -1,3 +1,5 @@
+import random
+
 my_friends = [
     "kriszta", 
     "csaba", 
